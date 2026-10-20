@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RC TECH | Mobile Repair, Electronics Store & Tech YouTube</title>
+<meta name="description" content="RC TECH: mobile repair, electronics store and tech content on YouTube (@rctech7).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --accent:#FF0000;
+  --accent-soft:rgba(255,0,0,.14);
+  --bg:#0a0a0a;
+  --bg-2:#141414;
+  --bg-3:#1e1e1e;
+  --line:#2c2c2c;
+  --text:#ffffff;
+  --muted:#a9a9a9;
+  --radius:14px;
+  --nav-h:68px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h)}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Chakra Petch','Barlow',sans-serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.container{width:min(1140px,92%);margin-inline:auto}
+section{padding:96px 0}
+.section-head{margin-bottom:44px;max-width:640px}
+.section-head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:12px}
+.section-head p{color:var(--muted)}
+
+/* Navbar */
+.nav{position:fixed;inset:0 0 auto 0;height:var(--nav-h);z-index:100;display:flex;align-items:center;
+  background:rgba(10,10,10,.55);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);
+  border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s}
+.nav.scrolled{background:rgba(10,10,10,.82)}
+.nav .container{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:1.45rem;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+.logo i{color:var(--accent)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{font-weight:500;color:#e8e8e8;position:relative;padding:6px 0;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--accent);transition:width .3s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.hamburger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer;width:44px;height:44px;border-radius:10px;transition:transform .25s,background .25s}
+.hamburger:hover{background:rgba(255,255,255,.08);transform:scale(1.08)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:600;font-size:1rem;border:2px solid var(--accent);cursor:pointer;
+  font-family:inherit;transition:transform .25s,box-shadow .25s,background .25s,color .25s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px rgba(255,0,0,.4)}
+.btn-ghost{background:transparent;color:#fff}
+.btn-ghost:hover{background:var(--accent-soft);transform:translateY(-3px) scale(1.04)}
+
+/* Hero */
+.hero{min-height:90vh;display:flex;align-items:center;padding:calc(var(--nav-h) + 40px) 0 60px;position:relative;overflow:hidden;
+  background:
+   radial-gradient(900px 500px at 85% 20%,rgba(255,0,0,.2),transparent 60%),
+   linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px,
+   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px,
+   var(--bg)}
+.hero .container{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{font-size:clamp(1.05rem,2vw,1.25rem);color:#d0d0d0;max-width:540px;margin-bottom:34px}
+.cta{display:flex;flex-wrap:wrap;gap:16px}
+.hero-card{background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:30px;display:grid;gap:16px;
+  box-shadow:0 0 0 1px rgba(255,0,0,.15),0 30px 60px rgba(0,0,0,.5);transform:rotate(2deg);transition:transform .4s}
+.hero-card:hover{transform:rotate(0) scale(1.03)}
+.hero-card .row{display:flex;align-items:center;gap:16px;padding:14px 16px;background:var(--bg-3);border-radius:12px;transition:transform .25s,background .25s}
+.hero-card .row:hover{transform:translateX(6px);background:#262626}
+.hero-card .row i{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;font-size:1.1rem;flex:none}
+.hero-card .row strong{display:block;font-family:'Chakra Petch',sans-serif}
+.hero-card .row small{color:var(--muted)}
+
+/* Videos */
+#videos{background:var(--bg-2)}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.video-card{background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+.video-card:hover{transform:translateY(-8px) scale(1.02);border-color:var(--accent);box-shadow:0 18px 40px rgba(255,0,0,.18)}
+.thumb{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;width:100%;border:0;display:block}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.video-card:hover .thumb img{transform:scale(1.08)}
+.thumb .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(transparent 40%,rgba(0,0,0,.6))}
+.thumb .play i{width:64px;height:64px;border-radius:50%;background:var(--accent);display:grid;place-items:center;font-size:1.3rem;padding-left:4px;transition:transform .25s}
+.thumb:hover .play i{transform:scale(1.15)}
+.thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-info{padding:18px 20px 22px}
+.video-info h3{font-size:1.05rem;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.video-info time{color:var(--muted);font-size:.9rem}
+.skeleton{height:290px;border-radius:var(--radius);background:linear-gradient(90deg,var(--bg-3) 25%,#2a2a2a 50%,var(--bg-3) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.feed-msg{grid-column:1/-1;padding:28px;border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted);text-align:center}
+.feed-msg a{color:var(--accent);font-weight:600}
+.center{text-align:center;margin-top:38px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-grid p{color:#cfcfcf;margin-bottom:16px}
+.about-list{list-style:none;display:grid;gap:12px;margin-top:22px}
+.about-list li{display:flex;gap:12px;align-items:center}
+.about-list i{color:var(--accent);width:20px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stat{background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);padding:28px 22px;text-align:center;transition:transform .3s,border-color .3s}
+.stat:hover{transform:translateY(-6px) scale(1.04);border-color:var(--accent)}
+.stat i{color:var(--accent);font-size:1.5rem;margin-bottom:12px}
+.stat .num{font-family:'Chakra Petch',sans-serif;font-size:2.3rem;font-weight:700;display:block}
+.stat .label{color:var(--muted);font-size:.95rem}
+
+/* Contact */
+#contact{background:var(--bg-2)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.contact-info{display:grid;gap:18px;align-content:start}
+.info-item{display:flex;gap:16px;align-items:center;padding:18px;background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius);transition:transform .25s,border-color .25s}
+.info-item:hover{transform:translateX(6px);border-color:var(--accent)}
+.info-item i{width:44px;height:44px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.info-item small{color:var(--muted);display:block}
+form{background:var(--bg-3);border:1px solid var(--line);border-radius:var(--radius);padding:32px;display:grid;gap:18px}
+.field{display:grid;gap:7px}
+.field label{font-weight:600;font-size:.95rem}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;background:var(--bg);color:#fff;border:1px solid var(--line);border-radius:10px;font:inherit;transition:border-color .25s,box-shadow .25s}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.field .err{color:#ff6b6b;font-size:.85rem;min-height:1em}
+.field.invalid input,.field.invalid textarea{border-color:#ff6b6b}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.form-status{padding:14px 16px;border-radius:10px;background:rgba(40,200,100,.12);border:1px solid rgba(40,200,100,.4);display:none}
+.form-status.show{display:block}
+
+/* Footer */
+footer{background:#050505;border-top:1px solid var(--line);padding:56px 0 28px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.foot p{color:var(--muted);margin-top:12px;max-width:340px}
+.foot h4{font-family:'Chakra Petch',sans-serif;margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:8px}
+.foot ul a{color:var(--muted);transition:color .2s,padding-left .2s}
+.foot ul a:hover{color:#fff;padding-left:6px}
+.socials{display:flex;gap:12px;flex-wrap:wrap}
+.socials a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:var(--bg-3);border:1px solid var(--line);transition:transform .25s,background .25s,border-color .25s}
+.socials a:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-4px) scale(1.12)}
+.copy{border-top:1px solid var(--line);padding-top:22px;color:var(--muted);font-size:.9rem;text-align:center}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+
+/* Responsive */
+@media (max-width:980px){
+  .video-grid{grid-template-columns:repeat(2,1fr)}
+  .hero .container,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-card{transform:none;max-width:520px}
+  .foot{grid-template-columns:1fr 1fr}
+  .foot>div:first-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  section{padding:70px 0}
+  .hamburger{display:block}
+  .nav-links{position:fixed;top:var(--nav-h);left:0;right:0;flex-direction:column;gap:0;padding:12px 4%;
+    background:rgba(10,10,10,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);transform:translateY(-130%);opacity:0;visibility:hidden;transition:transform .35s,opacity .35s,visibility .35s}
+  .nav-links.open{transform:none;opacity:1;visibility:visible}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;padding:16px 4px;border-bottom:1px solid var(--line)}
+  .video-grid,.row2{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr}
+  form{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container">
+    <a href="#home" class="logo"><i class="fa-solid fa-microchip"></i>RC<span>TECH</span></a>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><i class="fa-solid fa-bars"></i></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.youtube.com/@rctech7?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary" style="padding:9px 20px">Subscribe</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container">
+    <div>
+      <h1>Fix it. Buy it.<br>Watch it on <em>RC TECH</em></h1>
+      <p class="lead">Mobile repair, electronics and honest tech videos from a real repair bench. Bring in your phone, shop new gear, or learn how it all works on YouTube.</p>
+      <div class="cta">
+        <a href="https://www.youtube.com/@rctech7?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary"><i class="fa-brands fa-youtube"></i> Subscribe on YouTube</a>
+        <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-screwdriver-wrench"></i> Book a repair</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-label="What RC TECH does">
+      <div class="row"><i class="fa-solid fa-mobile-screen-button"></i><div><strong>Mobile repair</strong><small>Screens, batteries, software, water damage</small></div></div>
+      <div class="row"><i class="fa-solid fa-store"></i><div><strong>Electronics store</strong><small>Phones, accessories and gadgets</small></div></div>
+      <div class="row"><i class="fa-brands fa-youtube"></i><div><strong>Tech channel</strong><small>Reviews, repairs and how-tos</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="container">
+    <div class="section-head reveal">
+      <h2>Latest from the channel</h2>
+      <p>The three newest uploads, pulled live from YouTube.</p>
+    </div>
+    <div class="video-grid" id="videoGrid" aria-live="polite">
+      <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+    </div>
+    <div class="center">
+      <a href="https://www.youtube.com/@rctech7" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-youtube"></i> See all videos</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="reveal">
+      <div class="section-head" style="margin-bottom:20px"><h2>About RC TECH</h2></div>
+      <p>RC TECH started at the repair bench and grew into a mobile shop, an electronics store and a YouTube channel. Everything we film comes from work we do for real customers.</p>
+      <p>Watch us diagnose faults, compare gadgets and explain what actually matters before you spend money.</p>
+      <ul class="about-list">
+        <li><i class="fa-solid fa-check"></i> Fast, transparent mobile repairs</li>
+        <li><i class="fa-solid fa-check"></i> Genuine electronics and accessories</li>
+        <li><i class="fa-solid fa-check"></i> New tech videos every week</li>
+      </ul>
+    </div>
+    <div class="stats reveal" id="stats">
+      <!-- Edit data-count to match your real numbers -->
+      <div class="stat"><i class="fa-solid fa-users"></i><span class="num" data-count="10000" data-suffix="+">0</span><span class="label">Subscribers</span></div>
+      <div class="stat"><i class="fa-solid fa-play"></i><span class="num" data-count="250" data-suffix="+">0</span><span class="label">Videos</span></div>
+      <div class="stat"><i class="fa-solid fa-eye"></i><span class="num" data-count="1000000" data-suffix="+">0</span><span class="label">Total views</span></div>
+      <div class="stat"><i class="fa-solid fa-screwdriver-wrench"></i><span class="num" data-count="5000" data-suffix="+">0</span><span class="label">Devices repaired</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="reveal">
+      <div class="section-head"><h2>Get in touch</h2><p>Repair quote, store question or a business enquiry. Send a message and we will reply.</p></div>
+      <div class="contact-info">
+        <a class="info-item" href="https://www.youtube.com/@rctech7" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i><div><small>YouTube</small>@rctech7</div></a>
+        <a class="info-item" href="mailto:hello@example.com"><i class="fa-solid fa-envelope"></i><div><small>Email</small>hello@example.com</div></a>
+        <a class="info-item" href="tel:+9770000000000"><i class="fa-solid fa-phone"></i><div><small>Phone</small>+977 000 000 0000</div></a>
+      </div>
+    </div>
+    <form id="contactForm" class="reveal" novalidate>
+      <div class="row2">
+        <div class="field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required><span class="err"></span></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err"></span></div>
+      </div>
+      <div class="field"><label for="topic">What do you need?</label>
+        <select id="topic" name="topic"><option>Phone repair</option><option>Buy a product</option><option>Collaboration</option><option>Other</option></select>
+      </div>
+      <div class="field"><label for="message">Message</label><textarea id="message" name="message" required></textarea><span class="err"></span></div>
+      <button type="submit" class="btn btn-primary" style="justify-self:start"><i class="fa-solid fa-paper-plane"></i> Send message</button>
+      <div class="form-status" id="formStatus" role="status">Message sent. We will get back to you soon.</div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div>
+        <a href="#home" class="logo"><i class="fa-solid fa-microchip"></i>RC<span>TECH</span></a>
+        <p>Mobile repair, electronics and tech content. Channel: @rctech7.</p>
+      </div>
+      <div>
+        <h4>Quick links</h4>
+        <ul><li><a href="#videos">Videos</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Follow us</h4>
+        <div class="socials">
+          <a href="https://www.youtube.com/@rctech7" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.tiktok.com/" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copy">&copy; <span id="year"></span> RC TECH. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ===== CONFIG ===== */
+// The RSS feed needs the channel's UC... ID (YouTube Studio > Settings > Channel > Advanced settings).
+// The handle "rctech7" cannot be used in the feed URL.
+const CHANNEL_ID = "PASTE_YOUR_UC_CHANNEL_ID_HERE";
+const HANDLE_URL = "https://www.youtube.com/@rctech7";
+
+/* ===== Navbar ===== */
+const nav = document.getElementById('nav');
+const burger = document.getElementById('hamburger');
+const links = document.getElementById('navLinks');
+function setMenu(open){
+  links.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+}
+burger.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', e => { if(e.key === 'Escape') setMenu(false); });
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive:true});
+
+/* Active link on scroll */
+const navAnchors = [...links.querySelectorAll('a[href^="#"]')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting){
+      navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id));
+    }
+  });
+}, {rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+
+/* ===== YouTube feed (RSS via rss2json) ===== */
+const grid = document.getElementById('videoGrid');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function feedMessage(html){ grid.innerHTML = '<div class="feed-msg">' + html + '</div>'; }
+
+function renderVideos(items){
+  grid.innerHTML = '';
+  items.slice(0, 3).forEach(item => {
+    // guid looks like "yt:video:VIDEO_ID"
+    const id = String(item.guid || '').split(':').pop();
+    if(!id) return;
+    const thumb = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+    const date = new Date(item.pubDate.replace(' ', 'T') + 'Z').toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+    const card = document.createElement('article');
+    card.className = 'video-card';
+    card.innerHTML =
+      '<button class="thumb" type="button" aria-label="Play ' + esc(item.title) + '">' +
+        '<img src="' + thumb + '" alt="" loading="lazy">' +
+        '<span class="play"><i class="fa-solid fa-play"></i></span>' +
+      '</button>' +
+      '<div class="video-info"><h3>' + esc(item.title) + '</h3><time>' + esc(date) + '</time></div>';
+    card.querySelector('.thumb').addEventListener('click', function(){
+      this.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0" title="' + esc(item.title) +
+        '" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    }, {once:true});
+    grid.appendChild(card);
+  });
+}
+
+async function loadVideos(){
+  if(!CHANNEL_ID || CHANNEL_ID.startsWith('PASTE')){
+    feedMessage('Add your YouTube channel ID in the script to show the latest videos here. <a href="' + HANDLE_URL + '" target="_blank" rel="noopener">Visit the channel</a>');
+    return;
+  }
+  const rss = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + encodeURIComponent(CHANNEL_ID);
+  const api = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rss);
+  try{
+    const res = await fetch(api);
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if(data.status !== 'ok' || !data.items || !data.items.length) throw new Error('No items');
+    renderVideos(data.items);
+  }catch(err){
+    feedMessage('Could not load videos right now. <a href="' + HANDLE_URL + '" target="_blank" rel="noopener">Watch on YouTube</a>');
+  }
+}
+loadVideos();
+
+/* ===== Stats count-up ===== */
+function fmt(n){ return n >= 1e6 ? (n/1e6).toFixed(n % 1e6 ? 1 : 0) + 'M' : n >= 1e3 ? (n/1e3).toFixed(n % 1e3 ? 1 : 0) + 'K' : String(n); }
+const counters = document.querySelectorAll('.num[data-count]');
+const statObs = new IntersectionObserver((entries, obs) => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    obs.unobserve(en.target);
+    const el = en.target, target = +el.dataset.count, suffix = el.dataset.suffix || '', t0 = performance.now(), dur = 1600;
+    (function tick(t){
+      const p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(Math.round(target * eased)) + (p === 1 ? suffix : '');
+      if(p < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+}, {threshold:.5});
+counters.forEach(c => statObs.observe(c));
+
+/* ===== Scroll reveal ===== */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); revObs.unobserve(en.target); } });
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ===== Contact form ===== */
+const form = document.getElementById('contactForm');
+const status = document.getElementById('formStatus');
+function check(input){
+  const field = input.closest('.field'), err = field.querySelector('.err');
+  let msg = '';
+  if(!input.value.trim()) msg = 'This field is required.';
+  else if(input.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) msg = 'Enter a valid email address.';
+  field.classList.toggle('invalid', !!msg);
+  err.textContent = msg;
+  return !msg;
+}
+form.querySelectorAll('input[required],textarea[required]').forEach(i => i.addEventListener('blur', () => check(i)));
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const ok = [...form.querySelectorAll('input[required],textarea[required]')].map(check).every(Boolean);
+  if(!ok) return;
+  /* Connect a backend here (Formspree, EmailJS, your own API). */
+  status.classList.add('show');
+  form.reset();
+  setTimeout(() => status.classList.remove('show'), 6000);
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
