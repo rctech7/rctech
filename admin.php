@@ -1,7 +1,7 @@
 <?php
 // RC Tech slideshow admin. Upload with the site to cPanel public_html.
-// 1) Set your own password below (12+ characters).  2) Open yourdomain/admin.php
-$PASSWORD = 'CHANGE-THIS-PASSWORD';
+// 1) Set your own password below (12+ characters).  2) Open rctech.com.np/admin.php
+$PASSWORD = 'rctech';
 
 $DATA = __DIR__ . '/slides.json';
 $UP   = __DIR__ . '/uploads';
